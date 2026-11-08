@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Jayesh Tanna, Senior Software Engineer at Microsoft. Building production AI platforms, distributed systems, and multi-region cloud infrastructure.">
+  <meta property="og:title" content="Jayesh Tanna | AI & Infrastructure">
+  <meta property="og:description" content="Production AI platforms. Multi-region infrastructure. Hands-on engineering.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jayesh-tanna.github.io/">
+  <meta property="og:image" content="https://jayesh-tanna.github.io/portrait.jpg">
+  <title>Jayesh Tanna | AI & Infrastructure</title>
+  <link rel="canonical" href="https://jayesh-tanna.github.io/">
+  <link rel="icon" href="portrait.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="lucide.min.js" defer></script>
+  <style>
+    :root { --paper: #f6f8f5; --surface: #fff; --ink: #192820; --muted: #596b61; --line: #d9e2dc; --green: #176546; --soft: #e9f2ec; --coral: #d95b4b; --blue: #375abe; --shadow: 0 18px 50px #13251b0d; --header-height: 76px; }
+    [data-theme="dark"] { --paper: #151b18; --surface: #1c2520; --ink: #eef4ef; --muted: #afbeb4; --line: #354239; --green: #84d5ae; --soft: #23382c; --coral: #ff9481; --blue: #a8bcff; --shadow: 0 18px 50px #0002; }
+    * { box-sizing: border-box; letter-spacing: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 22px); }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.75 "Manrope", "Trebuchet MS", sans-serif; }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--coral); outline-offset: 5px; }
+    img { display: block; max-width: 100%; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3, .metric-number, .wordmark { font-family: "Space Grotesk", "Trebuchet MS", sans-serif; }
+    h2 { font-size: 36px; line-height: 1.2; font-weight: 600; }
+    h3 { font-size: 25px; line-height: 1.35; font-weight: 600; }
+    p { overflow-wrap: break-word; }
+    svg, [data-lucide] { width: 19px; height: 19px; flex: 0 0 19px; }
+    .shell { width: min(1120px, calc(100% - 80px)); margin-inline: auto; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .skip-link { position: fixed; top: 8px; left: 16px; z-index: 100; padding: 8px 16px; background: var(--surface); transform: translateY(-160%); }
+    .skip-link:focus { transform: translateY(0); }
+    .site-header { position: sticky; top: 0; z-index: 20; height: var(--header-height); background: var(--paper); border-bottom: 1px solid var(--line); }
+    .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .wordmark { display: inline-flex; align-items: center; gap: 11px; font-size: 18px; font-weight: 600; white-space: nowrap; }
+    .monogram { display: grid; place-items: center; width: 35px; height: 35px; color: var(--surface); background: var(--ink); font-size: 14px; }
+    .site-nav { display: flex; align-items: center; gap: 27px; margin-left: auto; }
+    .site-nav a { position: relative; padding: 8px 0; font-size: 13px; font-weight: 700; color: var(--muted); }
+    .site-nav a::after { position: absolute; right: 0; bottom: 3px; left: 0; height: 2px; background: var(--green); content: ""; transform: scaleX(0); transition: transform .2s; }
+    .site-nav a:hover, .site-nav a[aria-current="location"] { color: var(--green); }
+    .site-nav a[aria-current="location"]::after { transform: scaleX(1); }
+    .header-actions { display: flex; align-items: center; gap: 5px; }
+    .icon-button { display: inline-grid; place-items: center; position: relative; width: 40px; height: 40px; padding: 0; border: 1px solid transparent; border-radius: 5px; color: var(--ink); background: transparent; }
+    .icon-button:hover { background: var(--soft); border-color: var(--line); }
+    [data-tooltip]::after { position: absolute; top: calc(100% + 8px); right: 0; z-index: 30; padding: 5px 9px; border-radius: 4px; background: var(--ink); color: var(--surface); content: attr(data-tooltip); font-size: 11px; font-weight: 600; white-space: nowrap; opacity: 0; pointer-events: none; transform: translateY(-3px); transition: opacity .15s, transform .15s; }
+    [data-tooltip]:hover::after, [data-tooltip]:focus-visible::after { opacity: 1; transform: translateY(0); }
+    .menu-button { display: none; }
+    .scroll-progress { position: absolute; bottom: -1px; left: 0; height: 2px; width: 0; background: var(--coral); }
+    .hero { position: relative; padding: 68px 0 46px; overflow: hidden; }
+    .hero-grid { position: relative; display: grid; grid-template-columns: 1.4fr 1fr; gap: 50px; align-items: center; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--green); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+    h1 { margin-top: 20px; font-size: 80px; line-height: 1.04; font-weight: 600; }
+    h1 span { display: block; }
+    .name-stop { color: var(--coral); }
+    .hero-role { margin-top: 24px; font-size: 16px; font-weight: 700; }
+    .hero-copy { max-width: 465px; margin-top: 12px; color: var(--muted); font-size: 18px; line-height: 1.7; }
+    .hero-links { display: flex; flex-wrap: wrap; align-items: center; gap: 26px; margin-top: 27px; }
+    .primary-link { display: inline-flex; align-items: center; gap: 16px; padding: 12px 18px; border-radius: 5px; background: var(--green); color: #fff; font-size: 13px; font-weight: 700; transition: transform .2s; }
+    [data-theme="dark"] .primary-link { color: #15251b; }
+    .primary-link:hover { transform: translateY(-2px); }
+    .text-link { display: inline-flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 700; }
+    .text-link:hover { color: var(--green); }
+    .hero-media { position: relative; justify-self: end; width: 350px; padding: 0 0 25px 28px; }
+    .portrait { width: 322px; height: 340px; object-fit: cover; object-position: center; border-radius: 2px; }
+    .portrait-rail { position: absolute; top: 20px; bottom: 0; left: 0; width: 2px; background: var(--line); }
+    .portrait-note { display: flex; align-items: center; gap: 7px; margin-top: 13px; font-size: 11px; color: var(--muted); }
+    .portrait-note svg { width: 13px; height: 13px; flex-basis: 13px; }
+    .hero-domain { margin-top: 45px; display: flex; flex-wrap: wrap; gap: 12px 26px; color: var(--muted); font-size: 11px; font-weight: 700; text-transform: uppercase; }
+    .hero-domain span { display: inline-flex; gap: 8px; align-items: center; }
+    .hero-domain svg { width: 15px; height: 15px; flex-basis: 15px; color: var(--green); }
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .metric { padding: 26px 0; }
+    .metric + .metric { padding-left: 27px; border-left: 1px solid var(--line); }
+    .metric-number { font-size: 33px; font-weight: 500; line-height: 1.2; }
+    .metric-label { margin-top: 6px; color: var(--muted); font-size: 11px; }
+    .section { padding: 76px 0; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 25px; margin-bottom: 30px; }
+    .section-kicker { margin-bottom: 9px; color: var(--green); font-size: 11px; font-weight: 800; text-transform: uppercase; }
+    .section-intro { max-width: 360px; color: var(--muted); font-size: 13px; }
+    .work-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 25px; }
+    .filters { display: inline-flex; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: 6px; }
+    .filter { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 37px; padding: 6px 12px; border: 0; border-radius: 4px; background: transparent; color: var(--muted); font-size: 12px; font-weight: 700; }
+    .filter[aria-pressed="true"] { background: var(--green); color: #fff; }
+    [data-theme="dark"] .filter[aria-pressed="true"] { color: #15251b; }
+    .filter svg { width: 15px; height: 15px; flex-basis: 15px; }
+    .work-count { color: var(--muted); font-size: 11px; }
+    .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .work-card { min-width: 0; padding: 28px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; transition: box-shadow .25s, border-color .25s; }
+    .work-card:hover { border-color: var(--green); box-shadow: var(--shadow); }
+    .work-card[hidden] { display: none; }
+    .card-meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 23px; font-size: 10px; color: var(--muted); }
+    .card-category { display: inline-flex; align-items: center; gap: 7px; color: var(--green); font-weight: 800; text-transform: uppercase; }
+    .card-category svg { width: 15px; height: 15px; flex-basis: 15px; }
+    .card-lead { margin-top: 13px; color: var(--muted); font-size: 13px; }
+    .card-outcomes { display: flex; flex-wrap: wrap; gap: 15px 28px; margin-top: 24px; }
+    .outcome strong { display: block; font-family: "Space Grotesk", sans-serif; font-size: 24px; line-height: 1.25; font-weight: 500; }
+    .outcome span { font-size: 10px; color: var(--muted); }
+    .card-stack { margin-top: 23px; font-size: 10px; font-weight: 700; color: var(--muted); }
+    .case-details { margin-top: 21px; border-top: 1px solid var(--line); }
+    .case-details summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-top: 16px; list-style: none; cursor: pointer; font-size: 12px; font-weight: 800; }
+    .case-details summary::-webkit-details-marker { display: none; }
+    .case-details summary svg { transition: transform .2s; }
+    .case-details[open] summary svg { transform: rotate(180deg); }
+    .case-content { padding: 16px 0 0; font-size: 12px; color: var(--muted); }
+    .case-content p + p { margin-top: 13px; }
+    .case-content strong { color: var(--ink); }
+    .case-content a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+    .sdk-card { grid-column: 1 / -1; display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: center; }
+    .sdk-card .card-meta { margin-bottom: 15px; }
+    .sdk-proof { border-left: 1px solid var(--line); padding-left: 30px; }
+    .sdk-proof .text-link + .text-link { margin-top: 14px; }
+    .sdk-proof .text-link { display: flex; font-size: 12px; }
+    .writing-section { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .writing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+    .writing-item { display: flex; flex-direction: column; min-width: 0; padding-top: 20px; border-top: 2px solid var(--line); transition: border-color .2s; }
+    .writing-item:hover { border-color: var(--coral); }
+    .writing-meta { display: flex; justify-content: space-between; gap: 10px; font-size: 10px; color: var(--muted); }
+    .writing-item h3 { margin-top: 15px; font-size: 20px; }
+    .writing-item p { margin-top: 9px; font-size: 12px; color: var(--muted); }
+    .writing-item .text-link { align-self: start; margin-top: 19px; padding-top: 8px; font-size: 11px; }
+    .writing-more { margin-top: 32px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; }
+    .about-copy { margin-top: 19px; color: var(--muted); font-size: 14px; }
+    .about-copy + .about-copy { margin-top: 13px; }
+    .skills { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 24px; font-size: 11px; font-weight: 700; }
+    .skills span { padding-bottom: 3px; border-bottom: 1px solid var(--line); }
+    .timeline { margin-top: 4px; }
+    .timeline-row { display: grid; grid-template-columns: 105px 1fr; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line); }
+    .timeline-date { font-size: 10px; color: var(--muted); padding-top: 3px; }
+    .timeline-row h3 { font-size: 16px; }
+    .timeline-row p { margin-top: 3px; color: var(--muted); font-size: 11px; }
+    .contact-section { background: #1d3026; color: #f4f8f5; padding: 63px 0; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 40px; }
+    .contact-section .section-kicker { color: #97d6b4; }
+    .contact-section p { margin-top: 12px; color: #c0cfc5; font-size: 13px; }
+    .email-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: end; gap: 10px; }
+    .email-link { font-family: "Space Grotesk", sans-serif; font-size: 23px; border-bottom: 1px solid #6a8675; overflow-wrap: anywhere; }
+    .email-link:hover { color: #b1e7c7; }
+    .contact-section .icon-button { color: #f4f8f5; border-color: #6a8675; }
+    .contact-section .icon-button:hover { background: #314c3d; }
+    .contact-section [data-tooltip]::after { background: #f4f8f5; color: #1d3026; }
+    .copy-status { min-height: 23px; margin-top: 7px; text-align: right; color: #b1e7c7; font-size: 11px; }
+    .footer { padding: 23px 0; }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px; font-size: 10px; color: var(--muted); }
+    .social-links { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
+    .social-links a { display: inline-flex; align-items: center; gap: 6px; }
+    .social-links svg { width: 14px; height: 14px; flex-basis: 14px; }
+    .social-links a:hover { color: var(--green); }
+    .back-top { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--line); border-radius: 4px; }
+    .print-only { display: none; }
+    @keyframes enter { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-copy-block { animation: enter .6s both; }
+    .hero-media { animation: enter .6s .12s both; }
+    .reveal.is-visible { animation: enter .45s both; }
+    @media (max-width: 960px) {
+      .shell { width: calc(100% - 48px); }
+      .hero-grid { gap: 28px; grid-template-columns: 1.35fr 1fr; }
+      h1 { font-size: 66px; }
+      .hero-media { width: 280px; padding-left: 20px; }
+      .portrait { width: 260px; height: 310px; }
+      .site-nav { gap: 18px; }
+      .wordmark { font-size: 16px; }
+      .monogram { display: none; }
+      .about-grid { gap: 40px; }
+      .contact-grid { gap: 25px; }
+      .email-link { font-size: 19px; }
+    }
+    @media (max-width: 680px) {
+      :root { --header-height: 64px; }
+      .shell { width: calc(100% - 36px); }
+      .header-inner { gap: 12px; }
+      .wordmark { font-size: 16px; }
+      .menu-button { display: inline-grid; }
+      .site-nav { display: none; position: absolute; top: 63px; left: 18px; right: 18px; padding: 15px 20px; margin: 0; flex-direction: column; align-items: stretch; gap: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 0 0 6px 6px; box-shadow: var(--shadow); }
+      .site-nav.is-open { display: flex; }
+      .site-nav a { padding: 8px 0; }
+      .hero { padding: 35px 0 28px; }
+      .hero-grid { display: block; }
+      .eyebrow { max-width: 190px; font-size: 9px; gap: 7px; }
+      h1 { max-width: 195px; margin-top: 21px; font-size: 49px; }
+      .hero-media { position: absolute; right: 0; top: 36px; width: 104px; padding: 0; }
+      .portrait { width: 104px; height: 123px; }
+      .portrait-rail, .portrait-note { display: none; }
+      .hero-role { margin-top: 22px; font-size: 13px; }
+      .hero-copy { margin-top: 8px; font-size: 15px; line-height: 1.7; max-width: 400px; }
+      .hero-links { margin-top: 21px; gap: 23px; }
+      .primary-link { font-size: 12px; padding: 10px 14px; }
+      .hero-domain { margin-top: 24px; gap: 9px 18px; font-size: 9px; }
+      .hero-domain span:last-child { display: none; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .metric { padding: 16px 0; }
+      .metric + .metric { padding-left: 17px; }
+      .metric:nth-child(3) { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+      .metric:nth-child(4) { border-top: 1px solid var(--line); }
+      .metric-number { font-size: 25px; }
+      .metric-label { font-size: 10px; margin-top: 3px; }
+      .section { padding: 45px 0; }
+      h2 { font-size: 29px; }
+      .section-heading { align-items: start; flex-direction: column; gap: 13px; margin-bottom: 23px; }
+      .section-intro { font-size: 12px; }
+      .work-toolbar { gap: 9px; }
+      .filter { padding: 6px 10px; font-size: 11px; min-height: 35px; }
+      .filters { gap: 2px; }
+      .work-grid { grid-template-columns: 1fr; gap: 17px; }
+      .work-card { padding: 23px; }
+      .card-meta { margin-bottom: 19px; }
+      h3 { font-size: 23px; }
+      .sdk-card { display: block; grid-column: auto; }
+      .sdk-proof { margin-top: 20px; padding: 17px 0 0; border-top: 1px solid var(--line); border-left: 0; }
+      .writing-grid { grid-template-columns: 1fr; gap: 29px; }
+      .writing-item { padding-top: 14px; }
+      .writing-item h3 { font-size: 21px; margin-top: 11px; }
+      .writing-item .text-link { margin-top: 11px; }
+      .about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .timeline-row { grid-template-columns: 91px 1fr; gap: 13px; }
+      .contact-section { padding: 43px 0; }
+      .contact-grid { grid-template-columns: 1fr; gap: 26px; }
+      .email-row { justify-content: start; }
+      .email-link { font-size: 21px; }
+      .copy-status { text-align: left; }
+      .footer-inner { font-size: 10px; }
+      .social-links { gap: 14px; }
+    }
+    @media (max-width: 360px) {
+      .shell { width: calc(100% - 24px); }
+      .wordmark { font-size: 14px; }
+      .header-actions { gap: 0; }
+      .header-actions .icon-button { width: 34px; height: 36px; }
+      h1 { font-size: 43px; max-width: 155px; }
+      .hero-media { width: 76px; }
+      .portrait { width: 76px; height: 91px; }
+      .eyebrow { max-width: 165px; font-size: 8px; }
+      .filters { width: 100%; display: grid; grid-template-columns: 1fr .7fr 1.5fr; }
+      .filter { padding: 5px; gap: 5px; font-size: 10px; }
+      .filter svg { width: 13px; height: 13px; flex-basis: 13px; }
+      .email-link { font-size: 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+    @media print {
+      @page { size: A4; margin: 15mm; }
+      body { background: #fff; color: #111; font: 10pt/1.45 "Manrope", sans-serif; }
+      .screen-only { display: none !important; }
+      .print-only { display: block; }
+      .print-only h1 { max-width: none; font-size: 25pt; margin: 0; }
+      .print-only h2 { font-size: 12pt; margin: 17px 0 7px; padding-bottom: 4px; border-bottom: 1px solid #bbb; }
+      .print-only h3 { font-size: 10pt; margin: 9px 0 4px; }
+      .print-only p { margin: 5px 0; }
+      .print-only ul { margin: 5px 0; padding-left: 16px; }
+      .print-only li { margin: 3px 0; }
+      .print-only a { text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-only">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="wordmark" href="#home" aria-label="Jayesh Tanna, home"><span class="monogram" aria-hidden="true">JT</span>Jayesh Tanna</a>
+        <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+          <a href="#work">Work</a><a href="#writing">Writing</a><a href="#about">About</a><a href="#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <a class="icon-button" id="resume-link" href="jayesh-tanna-resume.pdf" download="Jayesh-Tanna-Resume.pdf" aria-label="Download resume (PDF)" data-tooltip="Download resume (PDF)"><i data-lucide="file-down" aria-hidden="true"></i></a>
+          <button class="icon-button" id="theme-button" type="button" aria-label="Switch to dark theme" data-tooltip="Dark theme"><i data-lucide="moon" aria-hidden="true"></i></button>
+          <button class="icon-button menu-button" id="menu-button" type="button" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false" data-tooltip="Navigation"><i data-lucide="menu" aria-hidden="true"></i></button>
+        </div>
+      </div>
+      <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    </header>
+    <main id="main">
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="shell">
+          <div class="hero-grid">
+            <div class="hero-copy-block">
+              <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>AI &amp; infrastructure engineering</p>
+              <h1 id="hero-title"><span>Jayesh</span><span>Tanna<span class="name-stop" style="display:inline">.</span></span></h1>
+              <p class="hero-role">Senior Software Engineer at Microsoft</p>
+              <p class="hero-copy">I build AI platforms and cloud infrastructure, with a focus on how they work in production.</p>
+              <div class="hero-links"><a class="primary-link" href="#work">View my work<i data-lucide="arrow-down-right" aria-hidden="true"></i></a><a class="text-link" href="#contact">Get in touch<i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+            </div>
+            <div class="hero-media">
+              <div class="portrait-rail" aria-hidden="true"></div>
+              <img class="portrait" src="portrait.jpg" alt="Jayesh Tanna" width="322" height="340" fetchpriority="high">
+              <p class="portrait-note"><i data-lucide="map-pin" aria-hidden="true"></i>Hyderabad, India</p>
+            </div>
+          </div>
+          <div class="hero-domain"><span><i data-lucide="brain-circuit" aria-hidden="true"></i>AI platforms</span><span><i data-lucide="network" aria-hidden="true"></i>Distributed systems</span><span><i data-lucide="terminal" aria-hidden="true"></i>Hands-on engineering</span></div>
+        </div>
+      </section>
+      <div class="shell metrics" aria-label="Experience highlights">
+        <div class="metric"><div class="metric-number">13+</div><div class="metric-label">years in software engineering</div></div>
+        <div class="metric"><div class="metric-number">20+</div><div class="metric-label">production regions, shared platform</div></div>
+        <div class="metric"><div class="metric-number">40+</div><div class="metric-label">merged public SDK pull requests</div></div>
+        <div class="metric"><div class="metric-number">2 teams</div><div class="metric-label">9 engineers, technical leadership</div></div>
+      </div>
+      <section class="section" id="work" aria-labelledby="work-title">
+        <div class="shell">
+          <div class="section-heading"><div><p class="section-kicker">01 / Selected work</p><h2 id="work-title">AI meets production.</h2></div><p class="section-intro">A selection of systems I have built, technical decisions I have driven, and outcomes I have helped deliver.</p></div>
+          <div class="work-toolbar"><div class="filters" role="group" aria-label="Filter selected work"><button class="filter" type="button" data-filter="all" aria-pressed="true"><i data-lucide="layout-grid" aria-hidden="true"></i>All work</button><button class="filter" type="button" data-filter="ai" aria-pressed="false"><i data-lucide="brain-circuit" aria-hidden="true"></i>AI</button><button class="filter" type="button" data-filter="infra" aria-pressed="false"><i data-lucide="server" aria-hidden="true"></i>Infrastructure</button></div><span class="work-count" id="work-count" role="status" aria-live="polite">3 projects</span></div>
+          <div class="work-grid">
+            <article class="work-card reveal" data-category="ai">
+              <div class="card-meta"><span class="card-category"><i data-lucide="brain-circuit" aria-hidden="true"></i>AI platform</span><span>Microsoft / 2024 - present</span></div>
+              <h3>AskAI</h3><p class="card-lead">The customer-facing AI assistant in Azure AI Foundry. A multi-tenant backend connecting conversations, models, and tools.</p>
+              <div class="card-outcomes"><div class="outcome"><strong>5+ regions</strong><span>production deployment</span></div><div class="outcome"><strong>6 teams</strong><span>cross-team delivery</span></div></div>
+              <p class="card-stack">C# / .NET &middot; Kubernetes &middot; Cosmos DB &middot; LLMs &middot; MCP</p>
+              <details class="case-details"><summary>My work &amp; engineering decisions<i data-lucide="chevron-down" aria-hidden="true"></i></summary><div class="case-content"><p><strong>My role.</strong> Set technical direction and led backend delivery from development to Public Preview. Owned the architecture for orchestration, LLM integration, tool execution, authentication, and downstream service integrations.</p><p><strong>Production thinking.</strong> Defined regional SLOs, built observability and test coverage, and worked on offline and continuous LLM evaluation. Tool approval and scoped permissions keep model decisions separate from permission to take action.</p><p><strong>Delivery.</strong> Shipped to Public Preview within 12 months, coordinating dependencies across six partner teams. The backend is C#/.NET; Python is part of my SDK work.</p></div></details>
+            </article>
+            <article class="work-card reveal" data-category="infra">
+              <div class="card-meta"><span class="card-category"><i data-lucide="network" aria-hidden="true"></i>Cloud infrastructure</span><span>Microsoft / 2020 - 2024</span></div>
+              <h3>A shared, multi-region platform</h3><p class="card-lead">The infrastructure behind Azure Native ISV Services, supporting partners including Dynatrace, NewRelic, Elastic, and Datadog.</p>
+              <div class="card-outcomes"><div class="outcome"><strong>20+ regions</strong><span>15+ enterprise partners</span></div><div class="outcome"><strong>55% less</strong><span>monthly infrastructure cost</span></div></div>
+              <p class="card-stack">C# / .NET &middot; Kubernetes &middot; IaC &middot; Cosmos DB &middot; Redis</p>
+              <details class="case-details"><summary>My work &amp; engineering decisions<i data-lucide="chevron-down" aria-hidden="true"></i></summary><div class="case-content"><p><strong>My role.</strong> Built backend services and the onboarding portal from scratch. Automated infrastructure provisioning and regional deployments through infrastructure as code, and owned the Kubernetes fleet.</p><p><strong>Migration.</strong> Led partner migrations from dedicated infrastructure to a shared platform without downtime. Tenant isolation, staged rollouts, health checks, and rollback planning were central to the design.</p><p><strong>Outcome.</strong> Adopting the shared platform reduced monthly infrastructure cost by 55% and SRE effort by 30%. Region-expansion automation reduced onboarding from two weeks to one day.</p><p><a href="https://learn.microsoft.com/en-us/azure/partner-solutions/overview" target="_blank" rel="noopener noreferrer">About Azure Native ISV Services</a></p></div></details>
+            </article>
+            <article class="work-card sdk-card reveal" data-category="ai">
+              <div><div class="card-meta"><span class="card-category"><i data-lucide="code-xml" aria-hidden="true"></i>Developer tooling</span><span>Microsoft / Python SDKs</span></div><h3>AI capabilities, usable by developers</h3><p class="card-lead">Designed and delivered fine-tuning SDK capabilities for Microsoft AI Foundry, including DPO, RFT, and SFT. Public Preview delivery, unit and end-to-end tests, and security review.</p><p class="card-stack">Python &middot; API design &middot; Fine-tuning &middot; Open source</p></div>
+              <div class="sdk-proof"><a class="text-link" href="https://github.com/Azure/azure-sdk-for-python/pulls?q=is%3Apr+is%3Amerged+author%3Ajayesh-tanna" target="_blank" rel="noopener noreferrer"><i data-lucide="git-pull-request" aria-hidden="true"></i>My merged Azure SDK contributions<i data-lucide="arrow-up-right" aria-hidden="true"></i></a><a class="text-link" href="https://devblogs.microsoft.com/foundry/dpo-fine-tuning-using-microsoft-foundry-sdk/" target="_blank" rel="noopener noreferrer"><i data-lucide="book-open" aria-hidden="true"></i>DPO fine-tuning on Microsoft DevBlogs<i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section writing-section" id="writing" aria-labelledby="writing-title">
+        <div class="shell"><div class="section-heading"><div><p class="section-kicker">02 / Writing</p><h2 id="writing-title">Notes from the work.</h2></div><p class="section-intro">I write about AI agents, distributed systems, and the practical details behind the architecture.</p></div>
+          <div class="writing-grid">
+            <article class="writing-item reveal"><div class="writing-meta"><span>AI agents</span><span>2026</span></div><h3>Agent Observability: Beyond Logs and Metrics</h3><p>A successful API call does not necessarily mean an agent did the right thing.</p><a class="text-link" href="https://jayeshtanna.medium.com/agent-observability-beyond-logs-and-metrics-a3f622880b92" target="_blank" rel="noopener noreferrer">Read article<i data-lucide="arrow-up-right" aria-hidden="true"></i></a></article>
+            <article class="writing-item reveal"><div class="writing-meta"><span>Agent engineering</span><span>2026</span></div><h3>Harness Engineering: The Other Half of an AI Agent</h3><p>The systems around a model matter as much as the model itself.</p><a class="text-link" href="https://jayeshtanna.medium.com/harness-engineering-the-other-half-of-an-ai-agent-6044d7023181" target="_blank" rel="noopener noreferrer">Read article<i data-lucide="arrow-up-right" aria-hidden="true"></i></a></article>
+            <article class="writing-item reveal"><div class="writing-meta"><span>Distributed systems</span><span>2024</span></div><h3>Database Sharding</h3><p>How partitioning data changes scalability, performance, and system design.</p><a class="text-link" href="https://jayeshtanna.medium.com/database-sharding-6c9532200e07" target="_blank" rel="noopener noreferrer">Read article<i data-lucide="arrow-up-right" aria-hidden="true"></i></a></article>
+          </div><a class="text-link writing-more" href="https://jayeshtanna.medium.com/" target="_blank" rel="noopener noreferrer">More writing on Medium<i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+        </div>
+      </section>
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="shell about-grid"><div><p class="section-kicker">03 / Background</p><h2 id="about-title">An engineer, first.</h2><p class="about-copy">I am a Senior Software Engineer at Microsoft, with 13+ years building backend systems, cloud platforms, and production AI infrastructure.</p><p class="about-copy">I stay hands-on with code and architecture while leading delivery across teams. My work ranges from tenant isolation and Kubernetes migrations to agent orchestration, evaluations, and SDK design.</p><p class="about-copy">I lead two engineering teams, nine engineers in total, through technical direction, code reviews, mentoring, and delivery ownership.</p><div class="skills" aria-label="Core skills"><span>C# / .NET</span><span>Python</span><span>TypeScript</span><span>Kubernetes</span><span>Azure</span><span>AWS</span><span>Cosmos DB</span><span>Redis</span><span>IaC</span><span>MCP</span><span>LLM evaluation</span></div></div>
+          <div class="timeline" aria-label="Career timeline"><div class="timeline-row"><span class="timeline-date">2024 - present</span><div><h3>Microsoft &middot; Azure AI</h3><p>AI agents, platform infrastructure, and Python SDKs</p></div></div><div class="timeline-row"><span class="timeline-date">2020 - 2024</span><div><h3>Microsoft &middot; DevDiv</h3><p>Multi-region shared infrastructure and cloud platforms</p></div></div><div class="timeline-row"><span class="timeline-date">2017 - 2020</span><div><h3>ACI Worldwide</h3><p>Payment notification systems on AWS, built in C#</p></div></div><div class="timeline-row"><span class="timeline-date">2015 - 2017</span><div><h3>Tieto India</h3><p>Full-stack software and background processing</p></div></div><div class="timeline-row"><span class="timeline-date">2013 - 2015</span><div><h3>Solution Planets</h3><p>Full-stack e-commerce development</p></div></div></div>
+        </div>
+      </section>
+      <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="shell contact-grid"><div><p class="section-kicker">04 / Contact</p><h2 id="contact-title">Let's connect.</h2><p>AI platforms, infrastructure, or a good engineering conversation.</p></div><div><div class="email-row"><a class="email-link" href="mailto:tanna.jay90@gmail.com">tanna.jay90@gmail.com</a><button class="icon-button" id="copy-email" type="button" aria-label="Copy email address" data-tooltip="Copy email"><i data-lucide="copy" aria-hidden="true"></i></button></div><div class="copy-status" id="copy-status" role="status" aria-live="polite"></div></div></div></section>
+    </main>
+    <footer class="footer"><div class="shell footer-inner"><span>&copy; <span id="year">2026</span> Jayesh Tanna</span><div class="social-links"><a href="https://github.com/jayesh-tanna" target="_blank" rel="noopener noreferrer"><i data-lucide="github" aria-hidden="true"></i>GitHub</a><a href="https://www.linkedin.com/in/jayesh-tanna/" target="_blank" rel="noopener noreferrer"><i data-lucide="linkedin" aria-hidden="true"></i>LinkedIn</a><a href="https://jayeshtanna.medium.com/" target="_blank" rel="noopener noreferrer"><i data-lucide="book-open" aria-hidden="true"></i>Medium</a><a class="back-top" href="#home" aria-label="Back to top" title="Back to top"><i data-lucide="arrow-up" aria-hidden="true"></i></a></div></div></footer>
+  </div>
+  <section class="print-only" aria-label="Jayesh Tanna resume">
+    <h1>Jayesh Tanna</h1><p>Senior Software Engineer | AI Platforms &amp; Cloud Infrastructure</p><p>Hyderabad, India | tanna.jay90@gmail.com | github.com/jayesh-tanna | linkedin.com/in/jayesh-tanna</p>
+    <p>13+ years building distributed backend systems, cloud platforms, and production AI infrastructure. Hands-on C# and Python engineer, technical leader, and open-source contributor.</p>
+    <h2>Experience</h2><h3>Microsoft, Azure AI Platform | Senior Software Engineer | June 2024 - present</h3><ul><li>Led backend architecture and delivery of AskAI, Azure AI Foundry's customer-facing AI assistant. Public Preview in 12 months, deployed across 5+ production regions, with delivery coordination across six partner teams.</li><li>Owned orchestration, LLM and tool integration, secure authentication, observability, tests, and offline and continuous LLM evaluation.</li><li>Delivered agent-platform infrastructure, deployment pipelines, distributed tracing, and usage and tool-call monitoring.</li><li>Designed and delivered Python fine-tuning SDK capabilities including DPO, RFT, and SFT. Contributed 40+ merged PRs across public Azure AI/ML Python SDKs.</li><li>Lead two engineering teams, nine engineers total, through technical direction, code reviews, mentoring, and delivery ownership.</li></ul>
+    <h3>Microsoft, Azure DevDiv | Senior Software Engineer | January 2020 - June 2024</h3><ul><li>Built shared infrastructure, backend services, and an onboarding portal for 15+ enterprise partners across 20+ production regions. Automated provisioning and regional deployments through infrastructure as code.</li><li>Owned Kubernetes fleet lifecycle, capacity, autoscaling, tenant isolation, and staged production rollouts.</li><li>Led zero-downtime partner migrations to shared infrastructure, reducing monthly infrastructure cost by 55% and SRE effort by 30%.</li><li>Automated regional expansion, reducing partner onboarding from two weeks to one day.</li></ul>
+    <h3>Earlier experience</h3><p>ACI Worldwide (2017 - 2020): C# payment-notification systems on AWS Lambda and SQS.<br>Tieto India (2015 - 2017): Full-stack engineering and background processing.<br>Solution Planets (2013 - 2015): Full-stack e-commerce development.</p>
+    <h2>Skills</h2><p>C#, .NET, Python, TypeScript, SQL, KQL, Kubernetes, Azure, AWS, Docker, IaC, Cosmos DB, PostgreSQL, Redis, distributed systems, MCP, RAG, fine-tuning, LLM evaluation, technical leadership.</p>
+    <h2>Education &amp; Public Work</h2><p>Master of Computer Applications, Gujarat Technological University, 2013.<br>Microsoft DevBlogs: DPO Fine-tuning using Microsoft Foundry SDK.<br>Technical writing: jayeshtanna.medium.com</p>
+  </section>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const themeButton = document.getElementById('theme-button');
+      const menuButton = document.getElementById('menu-button');
+      const navigation = document.getElementById('site-nav');
+      const navigationLinks = [...navigation.querySelectorAll('a')];
+      const filters = [...document.querySelectorAll('[data-filter]')];
+      const projects = [...document.querySelectorAll('[data-category]')];
+      const copyButton = document.getElementById('copy-email');
+      const copyStatus = document.getElementById('copy-status');
+      const progress = document.getElementById('scroll-progress');
+      const email = 'tanna.jay90@gmail.com';
+
+      const renderIcons = () => { if (window.lucide) window.lucide.createIcons(); };
+      const setTheme = (theme) => {
+        root.dataset.theme = theme;
+        const nextTheme = theme === 'dark' ? 'light' : 'dark';
+        themeButton.setAttribute('aria-label', `Switch to ${nextTheme} theme`);
+        themeButton.dataset.tooltip = `${nextTheme === 'dark' ? 'Dark' : 'Light'} theme`;
+        themeButton.innerHTML = `<i data-lucide="${theme === 'dark' ? 'sun' : 'moon'}" aria-hidden="true"></i>`;
+        renderIcons();
+      };
+      try { setTheme(localStorage.getItem('jayesh-portfolio-theme') === 'dark' ? 'dark' : 'light'); } catch { setTheme('light'); }
+      themeButton.addEventListener('click', () => {
+        const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        setTheme(theme);
+        try { localStorage.setItem('jayesh-portfolio-theme', theme); } catch {}
+      });
+
+      const setMenu = (open) => {
+        navigation.classList.toggle('is-open', open);
+        menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+        menuButton.innerHTML = `<i data-lucide="${open ? 'x' : 'menu'}" aria-hidden="true"></i>`;
+        renderIcons();
+      };
+      menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+      navigationLinks.forEach((link) => link.addEventListener('click', () => setMenu(false)));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+          setMenu(false);
+          menuButton.focus();
+        }
+      });
+      document.addEventListener('click', (event) => {
+        const eventPath = event.composedPath();
+        if (menuButton.getAttribute('aria-expanded') === 'true' && !eventPath.includes(navigation) && !eventPath.includes(menuButton)) setMenu(false);
+      });
+
+      filters.forEach((button) => button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        filters.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        projects.forEach((project) => { project.hidden = filter !== 'all' && project.dataset.category !== filter; });
+        const count = projects.filter((project) => !project.hidden).length;
+        document.getElementById('work-count').textContent = `${count} ${count === 1 ? 'project' : 'projects'}`;
+      }));
+
+      const updateScroll = () => {
+        const distance = root.scrollHeight - root.clientHeight;
+        progress.style.width = `${distance > 0 ? Math.min(100, root.scrollTop / distance * 100) : 0}%`;
+        const activeSection = [...document.querySelectorAll('main section[id]')].reverse().find((section) => section.getBoundingClientRect().top <= 160);
+        navigationLinks.forEach((link) => {
+          if (activeSection && link.hash === `#${activeSection.id}`) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      };
+      let scrollQueued = false;
+      document.addEventListener('scroll', () => {
+        if (scrollQueued) return;
+        scrollQueued = true;
+        requestAnimationFrame(() => { updateScroll(); scrollQueued = false; });
+      }, { passive: true });
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 680) setMenu(false);
+        updateScroll();
+      });
+      document.querySelectorAll('details').forEach((details) => details.addEventListener('toggle', updateScroll));
+
+      copyButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(email);
+          copyStatus.textContent = 'Email copied.';
+          copyButton.innerHTML = '<i data-lucide="check" aria-hidden="true"></i>';
+          renderIcons();
+        } catch { copyStatus.textContent = 'Please use the email link above.'; }
+      });
+      document.getElementById('year').textContent = new Date().getFullYear();
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: .12 });
+        document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+      }
+      document.addEventListener('DOMContentLoaded', renderIcons, { once: true });
+      renderIcons();
+      updateScroll();
+    })();
+  </script>
+</body>
+</html>
