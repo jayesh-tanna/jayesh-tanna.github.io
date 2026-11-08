@@ -6,9 +6,8 @@ Website: https://jayesh-tanna.github.io/
 
 ## Site Files
 
-- `index.html`: the page, styles, interactions, and public-safe resume source.
+- `index.html`: the page, styles, and interactions.
 - `portrait.jpg`: public GitHub profile portrait.
-- `jayesh-tanna-resume.pdf`: downloadable resume.
 - `lucide.min.js` and `lucide-license.txt`: bundled Lucide icons and their license.
 - `.nojekyll`: serve the static files without Jekyll processing.
 
@@ -16,4 +15,4 @@ Open the HTML file directly to preview the page. GitHub Pages serves the reposit
 
 The portrait and icon library are local assets. Manrope and Space Grotesk are loaded through Google Fonts. There is no backend, analytics service, or contact-form data collection. The appearance preference is stored locally in the visitor's browser.
 
-Update the downloadable PDF when the resume source changes. Local validation tools and preview screenshots are not published.
+Resumes are not published. Local validation tools and preview screenshots are not published.

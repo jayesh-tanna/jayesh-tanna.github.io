@@ -157,7 +157,6 @@
     .social-links svg { width: 14px; height: 14px; flex-basis: 14px; }
     .social-links a:hover { color: var(--green); }
     .back-top { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--line); border-radius: 4px; }
-    .print-only { display: none; }
     @keyframes enter { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
     .hero-copy-block { animation: enter .6s both; }
     .hero-media { animation: enter .6s .12s both; }
@@ -249,19 +248,6 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation: none !important; transition: none !important; }
     }
-    @media print {
-      @page { size: A4; margin: 15mm; }
-      body { background: #fff; color: #111; font: 10pt/1.45 "Manrope", sans-serif; }
-      .screen-only { display: none !important; }
-      .print-only { display: block; }
-      .print-only h1 { max-width: none; font-size: 25pt; margin: 0; }
-      .print-only h2 { font-size: 12pt; margin: 17px 0 7px; padding-bottom: 4px; border-bottom: 1px solid #bbb; }
-      .print-only h3 { font-size: 10pt; margin: 9px 0 4px; }
-      .print-only p { margin: 5px 0; }
-      .print-only ul { margin: 5px 0; padding-left: 16px; }
-      .print-only li { margin: 3px 0; }
-      .print-only a { text-decoration: none; }
-    }
   </style>
 </head>
 <body>
@@ -274,7 +260,6 @@
           <a href="#work">Work</a><a href="#writing">Writing</a><a href="#about">About</a><a href="#contact">Contact</a>
         </nav>
         <div class="header-actions">
-          <a class="icon-button" id="resume-link" href="jayesh-tanna-resume.pdf" download="Jayesh-Tanna-Resume.pdf" aria-label="Download resume (PDF)" data-tooltip="Download resume (PDF)"><i data-lucide="file-down" aria-hidden="true"></i></a>
           <button class="icon-button" id="theme-button" type="button" aria-label="Switch to dark theme" data-tooltip="Dark theme"><i data-lucide="moon" aria-hidden="true"></i></button>
           <button class="icon-button menu-button" id="menu-button" type="button" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false" data-tooltip="Navigation"><i data-lucide="menu" aria-hidden="true"></i></button>
         </div>
@@ -351,15 +336,6 @@
     </main>
     <footer class="footer"><div class="shell footer-inner"><span>&copy; <span id="year">2026</span> Jayesh Tanna</span><div class="social-links"><a href="https://github.com/jayesh-tanna" target="_blank" rel="noopener noreferrer"><i data-lucide="github" aria-hidden="true"></i>GitHub</a><a href="https://www.linkedin.com/in/jayesh-tanna/" target="_blank" rel="noopener noreferrer"><i data-lucide="linkedin" aria-hidden="true"></i>LinkedIn</a><a href="https://jayeshtanna.medium.com/" target="_blank" rel="noopener noreferrer"><i data-lucide="book-open" aria-hidden="true"></i>Medium</a><a class="back-top" href="#home" aria-label="Back to top" title="Back to top"><i data-lucide="arrow-up" aria-hidden="true"></i></a></div></div></footer>
   </div>
-  <section class="print-only" aria-label="Jayesh Tanna resume">
-    <h1>Jayesh Tanna</h1><p>Senior Software Engineer | AI Platforms &amp; Cloud Infrastructure</p><p>Hyderabad, India | tanna.jay90@gmail.com | github.com/jayesh-tanna | linkedin.com/in/jayesh-tanna</p>
-    <p>13+ years building distributed backend systems, cloud platforms, and production AI infrastructure. Hands-on C# and Python engineer, technical leader, and open-source contributor.</p>
-    <h2>Experience</h2><h3>Microsoft, Azure AI Platform | Senior Software Engineer | June 2024 - present</h3><ul><li>Led backend architecture and delivery of AskAI, Azure AI Foundry's customer-facing AI assistant. Public Preview in 12 months, deployed across 5+ production regions, with delivery coordination across six partner teams.</li><li>Owned orchestration, LLM and tool integration, secure authentication, observability, tests, and offline and continuous LLM evaluation.</li><li>Delivered agent-platform infrastructure, deployment pipelines, distributed tracing, and usage and tool-call monitoring.</li><li>Designed and delivered Python fine-tuning SDK capabilities including DPO, RFT, and SFT. Contributed 40+ merged PRs across public Azure AI/ML Python SDKs.</li><li>Lead two engineering teams, nine engineers total, through technical direction, code reviews, mentoring, and delivery ownership.</li></ul>
-    <h3>Microsoft, Azure DevDiv | Senior Software Engineer | January 2020 - June 2024</h3><ul><li>Built shared infrastructure, backend services, and an onboarding portal for 15+ enterprise partners across 20+ production regions. Automated provisioning and regional deployments through infrastructure as code.</li><li>Owned Kubernetes fleet lifecycle, capacity, autoscaling, tenant isolation, and staged production rollouts.</li><li>Led zero-downtime partner migrations to shared infrastructure, reducing monthly infrastructure cost by 55% and SRE effort by 30%.</li><li>Automated regional expansion, reducing partner onboarding from two weeks to one day.</li></ul>
-    <h3>Earlier experience</h3><p>ACI Worldwide (2017 - 2020): C# payment-notification systems on AWS Lambda and SQS.<br>Tieto India (2015 - 2017): Full-stack engineering and background processing.<br>Solution Planets (2013 - 2015): Full-stack e-commerce development.</p>
-    <h2>Skills</h2><p>C#, .NET, Python, TypeScript, SQL, KQL, Kubernetes, Azure, AWS, Docker, IaC, Cosmos DB, PostgreSQL, Redis, distributed systems, MCP, RAG, fine-tuning, LLM evaluation, technical leadership.</p>
-    <h2>Education &amp; Public Work</h2><p>Master of Computer Applications, Gujarat Technological University, 2013.<br>Microsoft DevBlogs: DPO Fine-tuning using Microsoft Foundry SDK.<br>Technical writing: jayeshtanna.medium.com</p>
-  </section>
   <script>
     (() => {
       const root = document.documentElement;
